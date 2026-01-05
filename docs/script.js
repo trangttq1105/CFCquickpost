@@ -52,7 +52,7 @@ document.getElementById("generateBtn").onclick = () => {
 
   selected.forEach((sentence, index) => {
     // Build text with line breaks
-    let fullText = `${sentence} ${customText}\n\n#CatForCash`;
+    let fullText = `${sentence} ${customText}\n\nWELCOME TIGERLYNX\n\n#CatForCash`;
 
     if (hashtags) {
       fullText += `\n${hashtags}`;
