@@ -1,5 +1,6 @@
 const SHEET_ID = "1_lFX9-CHK9nBBUIBMcgDGiYkefakGx27SrsHfaBCHhw";
 const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
+const YOUTUBE_TRAILER_LINK = "https://www.youtube.com/watch?v=H6l2SWc3SLI";
 
 let sheetData = [];
 
@@ -28,12 +29,16 @@ document.getElementById("generateBtn").onclick = () => {
 
   const topicIndex = document.getElementById("topicSelect").value;
   const customText = document.getElementById("customText").value.trim();
-  const link = document.getElementById("linkSelect").value;
+  
 
   if (!customText) {
     alert("Custom text is required (max 10 characters)");
     return;
   }
+
+  const shareTrailer = document.querySelector(
+  'input[name="shareTrailer"]:checked'
+)?.value;
 
   const hashtags = Array.from(
     document.querySelectorAll("input[type=checkbox]:checked")
@@ -58,10 +63,9 @@ document.getElementById("generateBtn").onclick = () => {
       fullText += `\n${hashtags}`;
     }
 
-    if (link) {
-      fullText += `\n${link}`;
-    }
-
+ if (shareTrailer === "yes") {
+  fullText += `\n${YOUTUBE_TRAILER_LINK}`;
+}
     const tweetUrl =
       "https://twitter.com/intent/tweet?text=" +
       encodeURIComponent(fullText);
