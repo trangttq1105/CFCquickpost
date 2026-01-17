@@ -35,7 +35,7 @@ document.getElementById("generateBtn").onclick = () => {
     return;
   }
 
-const shareLink = document.getElementById("shareLink")?.value;
+const shareLink = document.getElementById("shareLinkSelect")?.value;
 
   const hashtags = Array.from(
     document.querySelectorAll("input[type=checkbox]:checked")
