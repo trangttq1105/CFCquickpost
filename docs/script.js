@@ -1,6 +1,5 @@
 const SHEET_ID = "1_lFX9-CHK9nBBUIBMcgDGiYkefakGx27SrsHfaBCHhw";
 const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
-const YOUTUBE_TRAILER_LINK = "https://www.youtube.com/watch?v=H6l2SWc3SLI";
 
 let sheetData = [];
 
@@ -36,9 +35,7 @@ document.getElementById("generateBtn").onclick = () => {
     return;
   }
 
-  const shareTrailer = document.querySelector(
-  'input[name="shareTrailer"]:checked'
-)?.value;
+const shareLink = document.getElementById("shareLink")?.value;
 
   const hashtags = Array.from(
     document.querySelectorAll("input[type=checkbox]:checked")
@@ -63,8 +60,8 @@ document.getElementById("generateBtn").onclick = () => {
       fullText += `\n${hashtags}`;
     }
 
- if (shareTrailer === "yes") {
-  fullText += `\n${YOUTUBE_TRAILER_LINK}`;
+if (shareLink) {
+  fullText += `\n${shareLink}`;
 }
     const tweetUrl =
       "https://twitter.com/intent/tweet?text=" +
