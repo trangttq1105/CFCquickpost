@@ -54,7 +54,7 @@ const shareLink = document.getElementById("shareLinkSelect")?.value;
 
   selected.forEach((sentence, index) => {
     // Build text with line breaks
-    let fullText = `${sentence} ${customText}\n\n#CatForCashEP5`;
+    let fullText = `${sentence} ${customText}\n\n#CatForCashEP6`;
 
     if (hashtags) {
       fullText += `\n${hashtags}`;
